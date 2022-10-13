@@ -4,7 +4,7 @@ metadata:
   annotations:
     kompose.cmd: kompose convert -f docker-compose.yml -o petclinic_chart/templates
     kompose.image-pull-secret: regcred
-    kompose.service.expose: '{{ .Values.DNS_NAME }}'
+    kompose.service.expose: '{{ .VALUES.DNS_NAME }}'
     kompose.service.nodeport.port: "30001"
     kompose.service.type: nodeport
     kompose.version: 1.26.1 (a9d05d509)
@@ -15,7 +15,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: '{{ .Values.DNS_NAME }}'
+    - host: '{{ .VALUES.DNS_NAME }}'
       http:
         paths:
           - backend:
